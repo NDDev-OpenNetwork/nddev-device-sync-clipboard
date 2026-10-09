@@ -1,0 +1,10 @@
+{
+  "repository": "NDDev-OpenNetwork/rldyour-clipboard",
+  "release": "v0.2.1",
+  "linux_asset": "rldyour-clipboard-0.2.1-x86_64-linux.tar.gz",
+  "sha256": "5b7ac20c96a4cadab6cb4a5f7cc81ed978e7a9bc6c7fedd0366c265dbd80939c",
+  "executables": {
+    "NDS_TEST_CLIPBOARD_DAEMON": "prebuilt/rldyour-clipboardd"
+  },
+  "size": 1280403
+}
