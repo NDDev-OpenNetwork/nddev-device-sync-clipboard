@@ -1,19 +1,21 @@
 {
   "id": "clipboard",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "api_version": 1,
   "kind": "tool",
   "platforms": [
     "linux",
     "macos",
-    "windows"
+    "windows",
+    "android"
   ],
   "capabilities": [
     "read_device_state",
-    "read_module_health"
+    "read_module_health",
+    "share_clipboard"
   ],
   "permissions": [
-    "read_only",
+    "clipboard",
     "local_network"
   ],
   "dependencies": []
