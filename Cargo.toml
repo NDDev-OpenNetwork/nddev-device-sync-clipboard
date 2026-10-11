@@ -28,5 +28,5 @@ tempfile = "3"
 unsafe_code = "forbid"
 
 [target.'cfg(target_os = "android")'.dependencies]
-nddev-device-sync-accounts = { version="=0.0.1-alpha.17", git="https://github.com/NDDev-OpenNetwork/nddev-device-sync-accounts", rev="fb65330c593d2617b6d9d0e03ffeba81887467c2" }
+nddev-device-sync-accounts = { version="=0.0.1-alpha.17", git="https://github.com/NDDev-OpenNetwork/nddev-device-sync-accounts", rev="80266e0bac95f784545824ac049b3e8aeaf17265" }
 jni = "0.21.1"
