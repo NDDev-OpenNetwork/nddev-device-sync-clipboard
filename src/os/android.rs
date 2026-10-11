@@ -75,9 +75,22 @@ pub(super) fn read() -> Result<Zeroizing<String>, Error> {
     nddev_device_sync_accounts::android::with_application_context(|env, app| {
         Ok((|| {
             let manager = manager(env, app)?;
+            // Read one ClipData snapshot: separately fetching its description
+            // and payload could admit a newly replaced sensitive clipboard.
+            let clip = failure(env.call_method(
+                manager,
+                "getPrimaryClip",
+                "()Landroid/content/ClipData;",
+                &[],
+            ))?
+            .l()
+            .map_err(|_| Error::Unavailable)?;
+            if clip.is_null() {
+                return Err(Error::Unavailable);
+            }
             let description = failure(env.call_method(
-                &manager,
-                "getPrimaryClipDescription",
+                &clip,
+                "getDescription",
                 "()Landroid/content/ClipDescription;",
                 &[],
             ))?
@@ -119,17 +132,6 @@ pub(super) fn read() -> Result<Zeroizing<String>, Error> {
                 {
                     return Err(Error::Private);
                 }
-            }
-            let clip = failure(env.call_method(
-                manager,
-                "getPrimaryClip",
-                "()Landroid/content/ClipData;",
-                &[],
-            ))?
-            .l()
-            .map_err(|_| Error::Unavailable)?;
-            if clip.is_null() {
-                return Err(Error::Unavailable);
             }
             if failure(env.call_method(&clip, "getItemCount", "()I", &[]))?
                 .i()
