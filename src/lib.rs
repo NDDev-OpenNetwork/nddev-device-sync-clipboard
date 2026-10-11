@@ -1,8 +1,9 @@
 //! Native clipboard archive integration. Content stays in the owning provider;
-//! this module never opens its database or captures the OS clipboard itself.
+//! native OS text delivery is separate from archive ownership.
 
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
 mod adapter;
+pub mod os;
 pub mod view;
 
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]

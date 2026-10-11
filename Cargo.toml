@@ -1,6 +1,6 @@
 [package]
 name = "nddev-device-sync-clipboard"
-version = "0.0.1-alpha.1"
+version = "0.0.1-alpha.2"
 edition = "2024"
 rust-version = "1.99"
 license = "AGPL-3.0-only"
@@ -10,16 +10,23 @@ repository = "https://github.com/NDDev-OpenNetwork/nddev-device-sync-clipboard"
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
+zeroize = "1.8"
+tokio = { version = "1.53", features = ["rt", "sync", "time"] }
+thiserror = "2"
 
 [target.'cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))'.dependencies]
 nddev-device-sync-adapter-io = { version = "=0.0.1-alpha.1", git = "https://github.com/NDDev-OpenNetwork/nddev-device-sync-agent", rev = "341644980976a08825b194f147b7534321325785" }
-thiserror = "2"
+arboard = { version = "=3.6.1", default-features = false, features = ["wayland-data-control"] }
 serde_json = "1"
 
 [dev-dependencies]
-tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+tokio = { version = "1.53", features = ["macros", "rt-multi-thread", "time"] }
 
 tempfile = "3"
 
 [lints.rust]
 unsafe_code = "forbid"
+
+[target.'cfg(target_os = "android")'.dependencies]
+nddev-device-sync-accounts = { git="https://github.com/NDDev-OpenNetwork/nddev-device-sync-accounts", rev="aa826d2e9264e94739020fa4c7fcb5e2f6400391" }
+jni = "0.21.1"
