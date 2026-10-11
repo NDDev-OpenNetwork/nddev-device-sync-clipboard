@@ -3,6 +3,8 @@
 
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
 mod adapter;
+#[cfg(target_arch = "wasm32")]
+pub mod browser;
 pub mod os;
 pub mod view;
 
