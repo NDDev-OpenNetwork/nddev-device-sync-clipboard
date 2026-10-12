@@ -15,7 +15,7 @@ tokio = { version = "1.53", features = ["rt", "sync", "time"] }
 thiserror = "2"
 
 [target.'cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))'.dependencies]
-nddev-device-sync-adapter-io = { version = "=0.0.1-alpha.1", git = "https://github.com/NDDev-OpenNetwork/nddev-device-sync-agent", rev = "341644980976a08825b194f147b7534321325785" }
+nddev-device-sync-adapter-io = { version = "=0.0.1-alpha.1", git = "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-agent", rev = "341644980976a08825b194f147b7534321325785" }
 arboard = { version = "=3.6.1", default-features = false, features = ["wayland-data-control"] }
 serde_json = "1"
 
