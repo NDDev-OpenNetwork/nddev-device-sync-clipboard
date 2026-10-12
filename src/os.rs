@@ -2,8 +2,11 @@
 //! clipboard history/database copying or implicit image/URI coercion.
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
 use std::sync::Mutex;
+#[cfg(not(target_arch = "wasm32"))]
 use std::{sync::Arc, time::Duration};
+#[cfg(not(target_arch = "wasm32"))]
 use tokio::sync::Semaphore;
+#[cfg(not(target_arch = "wasm32"))]
 use zeroize::Zeroizing;
 #[derive(Clone, Copy, Debug, thiserror::Error)]
 pub enum Error {
@@ -13,20 +16,26 @@ pub enum Error {
     Busy,
     #[error("clipboard_unsupported")]
     Unsupported,
+    #[error("clipboard_permission_denied")]
+    PermissionDenied,
     #[error("clipboard_private")]
     Private,
     #[error("clipboard_too_large")]
     TooLarge,
 }
 #[derive(Clone)]
+#[cfg_attr(target_arch = "wasm32", derive(Default))]
 pub struct TextClipboard {
+    #[cfg(not(target_arch = "wasm32"))]
     gate: Arc<Semaphore>,
     #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
     clipboard: Arc<Mutex<Option<arboard::Clipboard>>>,
 }
+#[cfg(not(target_arch = "wasm32"))]
 impl Default for TextClipboard {
     fn default() -> Self {
         Self {
+            #[cfg(not(target_arch = "wasm32"))]
             gate: Arc::new(Semaphore::new(1)),
             #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
             clipboard: Arc::new(Mutex::new(None)),
@@ -34,6 +43,7 @@ impl Default for TextClipboard {
     }
 }
 impl TextClipboard {
+    #[cfg(not(target_arch = "wasm32"))]
     pub async fn write(&self, text: Zeroizing<String>, sensitive: bool) -> Result<(), Error> {
         if text.len() > 8192 || text.contains('\0') {
             return Err(Error::TooLarge);

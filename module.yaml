@@ -1,10 +1,10 @@
 id: clipboard
 name: nddev-device-sync-clipboard
-version: 0.0.1-alpha.2
+version: 0.0.1-alpha.3
 channel: alpha
 license: AGPL-3.0-only
 repository: NDDev-OpenNetwork/nddev-device-sync-clipboard
 standards_lock: standarts.lock
 runtime_manifest: contracts/module.json
-platforms: [linux, macos, windows, android]
+platforms: [linux, macos, windows, android, web]
 native_provider: provider.lock.json
