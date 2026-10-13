@@ -1,4 +1,4 @@
-#![cfg(unix)]
+#![cfg(any(target_os = "linux", target_os = "macos"))]
 
 use nddev_device_sync_clipboard::{CancellationToken, Clipboard, NativeIo, ReadClipboard};
 use serde_json::{Value, json};
