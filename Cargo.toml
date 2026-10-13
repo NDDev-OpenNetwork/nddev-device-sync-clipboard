@@ -1,6 +1,6 @@
 [package]
 name = "nddev-device-sync-clipboard"
-version = "0.0.1-alpha.4"
+version = "0.0.1-alpha.5"
 edition = "2024"
 rust-version = "1.99"
 license = "AGPL-3.0-only"
@@ -19,7 +19,7 @@ nddev-device-sync-adapter-io = { version = "=0.0.1-alpha.1", git = "https://gith
 arboard = { version = "=3.6.1", default-features = false, features = ["wayland-data-control"] }
 serde_json = "1"
 
-[dev-dependencies]
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
 tokio = { version = "1.53", features = ["macros", "rt-multi-thread", "time"] }
 
 tempfile = "3"
@@ -28,7 +28,7 @@ tempfile = "3"
 unsafe_code = "forbid"
 
 [target.'cfg(target_os = "android")'.dependencies]
-nddev-device-sync-accounts = { version="=0.0.1-alpha.19", git="https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", rev="99d504db29326dc9148857a55526332c50c12354" }
+nddev-device-sync-accounts = { version="=0.0.1-alpha.20", git="https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", rev="2063dfed70da1662336c488e34f270b5505e2871" }
 jni = "0.21.1"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
