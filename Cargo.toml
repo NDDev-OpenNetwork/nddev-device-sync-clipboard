@@ -1,6 +1,6 @@
 [package]
 name = "nddev-device-sync-clipboard"
-version = "0.0.1-alpha.5"
+version = "0.0.1-alpha.6"
 edition = "2024"
 rust-version = "1.99"
 license = "AGPL-3.0-only"
@@ -28,7 +28,7 @@ tempfile = "3"
 unsafe_code = "forbid"
 
 [target.'cfg(target_os = "android")'.dependencies]
-nddev-device-sync-accounts = { version="=0.0.1-alpha.20", git="https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", rev="2063dfed70da1662336c488e34f270b5505e2871" }
+nddev-device-sync-accounts = { version="=0.0.1-alpha.22", git="https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", rev="f68d0e306899fad98fb6d85e38d8e5d15173de09" }
 jni = "0.21.1"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
