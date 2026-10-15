@@ -9,4 +9,4 @@ wildcards = "deny"
 [sources]
 unknown-registry = "deny"
 unknown-git = "deny"
-allow-git = ["https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", "https://github.com/NDDev-OpenNetwork/nddev-device-sync-core.git", "https://github.com/NDDev-OpenNetwork/nddev-device-sync-protocol.git", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-observability", "https://github.com/NDDev-OpenNetwork/nddev-device-sync-agent"]
+allow-git = ["https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-protocol.git", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-observability", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-agent"]

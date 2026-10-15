@@ -15,7 +15,7 @@ tokio = { version = "1.53", features = ["rt", "sync", "time"] }
 thiserror = "2"
 
 [target.'cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))'.dependencies]
-nddev-device-sync-adapter-io = { version = "=0.0.1-alpha.1", git = "https://github.com/NDDev-OpenNetwork/nddev-device-sync-agent", rev = "341644980976a08825b194f147b7534321325785" }
+nddev-device-sync-adapter-io = { version = "=0.0.1-alpha.4", git = "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-agent", rev = "fba131111837ce1fe6c82ce6df9e3d19420f62e7" }
 arboard = { version = "=3.6.1", default-features = false, features = ["wayland-data-control"] }
 serde_json = "1"
 
@@ -28,7 +28,7 @@ tempfile = "3"
 unsafe_code = "forbid"
 
 [target.'cfg(target_os = "android")'.dependencies]
-nddev-device-sync-accounts = { version="=0.0.1-alpha.24", git="https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", rev="aa387beaf08ba53ec630d6fb64b6861f7075486b" }
+nddev-device-sync-accounts = { version="=0.0.1-alpha.24", git="https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-accounts", rev="3f051572534329c1469562a7c1108b75ecfc77cc" }
 jni = "0.21.1"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
